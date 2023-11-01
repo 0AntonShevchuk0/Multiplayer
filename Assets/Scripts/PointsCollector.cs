@@ -4,13 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class PointsCollector : MonoBehaviour
 {
-    private int _collectedNumber;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<CollectablePoint>() != null)
+        if (other.TryGetComponent(out CollectablePoint collectablePoint))
         {
-            _collectedNumber++;
+            if (collectablePoint.IsCollected) return;
+                
+            collectablePoint.Collect();
             Destroy(other.gameObject);
         }
     }
