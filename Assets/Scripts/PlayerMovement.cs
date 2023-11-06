@@ -15,8 +15,12 @@ public class PlayerMovement : NetworkBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
     
-    private void FixedUpdate()
+    private void Update()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
         MoveToDirection();
     }
     
