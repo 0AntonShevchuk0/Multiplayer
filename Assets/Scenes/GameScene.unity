@@ -1368,34 +1368,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 671044475}
     m_Modifications:
+    - target: {fileID: 608397889298776666, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 949031522
+      objectReference: {fileID: 0}
     - target: {fileID: 5095883859585702136, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
       propertyPath: m_Name
       value: PointsSpawnSystem
       objectReference: {fileID: 0}
     - target: {fileID: 5632426957240705052, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
-      propertyPath: maxPoints
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632426957240705052, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
-      propertyPath: pointPrefab
-      value: 
-      objectReference: {fileID: 1277390054076073678, guid: b0455704d6cbdd34db7a18989e39f0ae, type: 3}
-    - target: {fileID: 5632426957240705052, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
       propertyPath: pointsParent
       value: 
       objectReference: {fileID: 78645351}
-    - target: {fileID: 5632426957240705052, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
-      propertyPath: spawnInterval
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632426957240705052, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
-      propertyPath: spawnSquareSize.x
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632426957240705052, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
-      propertyPath: spawnSquareSize.y
-      value: 36
-      objectReference: {fileID: 0}
     - target: {fileID: 6485111940559381212, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
