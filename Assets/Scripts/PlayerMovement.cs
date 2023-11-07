@@ -11,7 +11,7 @@ public class PlayerMovement : NetworkBehaviour
     private Rigidbody2D _rigidbody;
     private CinemachineVirtualCamera _followCamera;
     private Vector2 _direction;
-
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
