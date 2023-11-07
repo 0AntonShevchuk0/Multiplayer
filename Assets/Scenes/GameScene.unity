@@ -907,9 +907,9 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 127.0.0.1
-    Port: 7777
-    ServerListenAddress: 127.0.0.1
+    Address: 109.86.77.194
+    Port: 25565
+    ServerListenAddress: 0.0.0.0
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -1876,7 +1876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1588665006395383262, guid: e29b0d85aed41344aade80f88298a101, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2262013901756142087, guid: e29b0d85aed41344aade80f88298a101, type: 3}
       propertyPath: m_Pivot.x
@@ -2131,6 +2131,10 @@ PrefabInstance:
     - target: {fileID: 3301405220130647841, guid: f01b75376cf867f44890e8bdc551198d, type: 3}
       propertyPath: m_Name
       value: MultiplayerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301405220130647841, guid: f01b75376cf867f44890e8bdc551198d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
