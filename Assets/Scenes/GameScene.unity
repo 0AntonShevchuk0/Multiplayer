@@ -1368,10 +1368,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 671044475}
     m_Modifications:
-    - target: {fileID: 608397889298776666, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 949031522
-      objectReference: {fileID: 0}
     - target: {fileID: 5095883859585702136, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
       propertyPath: m_Name
       value: PointsSpawnSystem
@@ -1419,6 +1415,10 @@ PrefabInstance:
     - target: {fileID: 6485111940559381212, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048704783177394044, guid: 86dde1d272a14174a81ec6a730387fa8, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2008520347
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

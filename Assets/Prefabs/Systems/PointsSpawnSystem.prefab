@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6485111940559381212}
   - component: {fileID: 5632426957240705052}
+  - component: {fileID: 8048704783177394044}
   m_Layer: 0
   m_Name: PointsSpawnSystem
   m_TagString: Untagged
@@ -44,9 +45,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80fa2d09b5bbc846a9b705658522bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 1277390054076073678, guid: 98e77980ce09dfa469f98b63a1b1aa23, type: 3}
+  pointPrefab: {fileID: 1277390054076073678, guid: b0455704d6cbdd34db7a18989e39f0ae, type: 3}
   pointsParent: {fileID: 0}
   spawnSquareCenter: {x: 0, y: 0}
-  spawnSquareSize: {x: 10, y: 10}
-  spawnInterval: 0.25
-  maxPoints: 10
+  spawnSquareSize: {x: 36, y: 36}
+  spawnInterval: 0.5
+  maxPoints: 500
+--- !u!114 &8048704783177394044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095883859585702136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

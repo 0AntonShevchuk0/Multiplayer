@@ -1,7 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PointsSpawnSystem : MonoBehaviour
+public class PointsSpawnSystem : NetworkBehaviour
 {
     public static PointsSpawnSystem Instance { get; private set; }
     
@@ -16,7 +18,7 @@ public class PointsSpawnSystem : MonoBehaviour
     [SerializeField] [Range(0f, 60f)] private float spawnInterval;
     [SerializeField] [Range(0, 1000000)] private int maxPoints;
 
-    private int _numberOfPoints;
+    private readonly List<Vector3> _spawnedPointsPositions = new();
 
     private void Awake()
     {
@@ -30,33 +32,45 @@ public class PointsSpawnSystem : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    private void Start()
+
+    public override void OnNetworkSpawn()
     {
-        StartCoroutine(SpawnPoints());
+        if (IsServer)
+        {
+            StartCoroutine(SpawnPoints());
+        }
     }
 
-    public void PointDestroyed()
+    [ServerRpc(RequireOwnership = false)]
+    private void SpawnPointServerRpc()
     {
-        if (_numberOfPoints == 0)
+        var pointX = Random.Range(-spawnSquareSize.x / 2f, spawnSquareSize.x / 2f) + spawnSquareCenter.x;
+        var pointY = Random.Range(-spawnSquareSize.x / 2f, spawnSquareSize.y / 2f) + spawnSquareCenter.y;
+        SpawnPointClientRpc(new Vector3(pointX, pointY, 0f), _spawnedPointsPositions.ToArray());
+    }
+
+    [ClientRpc]
+    private void SpawnPointClientRpc(Vector3 newPointPosition, Vector3[] spawnedPoints)
+    {
+        if (_spawnedPointsPositions.Count == 0)
         {
-            Debug.LogError("You destroyed too many points");
-            return;
+            foreach (var spawnedPointPosition in spawnedPoints)
+            {
+                Instantiate(pointPrefab, spawnedPointPosition, Quaternion.identity, pointsParent);
+            }
         }
-        _numberOfPoints--;
+        Instantiate(pointPrefab, newPointPosition, Quaternion.identity, pointsParent);
+        _spawnedPointsPositions.Add(newPointPosition);
     }
 
     private IEnumerator SpawnPoints()
     {
         while (true)
         {
-            if (_numberOfPoints >= maxPoints) yield return new WaitForEndOfFrame();
+            if (_spawnedPointsPositions.Count >= maxPoints) yield return new WaitForEndOfFrame();
             else
             {
-                var pointX = Random.Range(-spawnSquareSize.x / 2f, spawnSquareSize.x / 2f) + spawnSquareCenter.x;
-                var pointY = Random.Range(-spawnSquareSize.x / 2f, spawnSquareSize.y / 2f) + spawnSquareCenter.y;
-                Instantiate(pointPrefab, new Vector3(pointX, pointY, 0f), Quaternion.identity, pointsParent);
-                _numberOfPoints++;
+                SpawnPointServerRpc();
                 yield return new WaitForSeconds(spawnInterval);
             }
         }
