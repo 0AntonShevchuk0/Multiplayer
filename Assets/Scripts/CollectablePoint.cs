@@ -10,6 +10,5 @@ public class CollectablePoint : MonoBehaviour
     {
         IsCollected = true;
         ScoreSystem.Instance.AddScore(score);
-        PointsSpawnSystem.Instance.PointDestroyed();
     }
 }
